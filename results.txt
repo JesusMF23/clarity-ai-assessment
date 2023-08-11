@@ -1,6 +1,6 @@
 1- What are the main changes between the current and past results?
 
-    After detecting duplicated pairs of: company_name+goal+version but with different matket cap and impact (for example MATCH GROUP, INC), assuming they are correct:
+    After detecting duplicated pairs of: company_name+goal+version but with different market cap and impact (for example MATCH GROUP, INC), assuming they are correct:
 
     The market cap has decreased by: -575367.7482678369
 
@@ -20,33 +20,33 @@
     MATCH GROUP, INC.  13 - Climate change     -374.556227      -300.039228         -74.516999
     MATCH GROUP, INC.  13 - Climate change     -300.039228      -374.556227          74.516999
 
-    As results, we can observe that IND SWIFT LIMITED has a big differente in its impact. If we observe, MATCH GROUP, INC, we see changes in both directions, possitive and negative, 
+    As a result, we can observe that IND SWIFT LIMITED has a big difference in its impact. If we observe, MATCH GROUP, INC, we see changes in both directions, positive and negative,
     that may be associated with duplicated pairs.
 
 2-Would you recommend to assess in more detail any of these changes? Why?
 
-    Yes, I would recommend assessing why IND SWIFT LIMITED has such a high decrease. Also why MATCH GROUP, INC 
-    has changes in possitive and negative for the same goal, might be some error on data source.
+    Yes, I would recommend assessing why IND SWIFT LIMITED has such a high decrease. Also why MATCH GROUP, INC
+    has changes in positive and negative for the same goal, might be some error on data source.
 
-    I would also study in detail the entries for companies, just to verify why we have duplicated company_name+goal+version, 
+    I would also study in detail the entries for companies, just to verify why we have duplicated company_name+goal+version,
     is this related to an issue in the data source? Are we meant to have only unique values? (as it happens with MATCH GROUP, INC)
 
-    Another thing to review, is why we are having most negative impacts differente but we still have a possitive impact gap. This may show companies are going towards the correct direction 
-    but we still have room for improvement, or otherwise that we have problems on our data.
+    Another thing to review, is why we are having most negative impacts differently but we still have a positive impact gap. This may show companies are going towards the correct direction
+    but we still have room for improvement, or otherwise that we have problems with our data.
 
 3-If you believe that further assessments are needed, how would you prioritize them and why? What assessments would you propose?
 
     For the detailed assessment I would prioritize based on the following:
-        1- Change: giving high priority to biggest changes, whether they are possitive or negative, they might be outliers that we need to correct.
-        2- Company: are these companies that are "trendy" in stock market? We should focus for those companies that gather more attention by investors,
+        1- Change: giving high priority to biggest changes, whether they are positive or negative, they might be outliers that we need to correct.
+        2- Company: are these companies that are "trendy" in the stock market? We should focus for those companies that gather more attention by investors,
             otherwise the impact of any error on our system will lead to bad reputation of our product and reducing the NPS (apart from impact on reputation, stocks value, ...)
-        3- Trens: do we observe these companies have an increasing or decreasing trend on their impact or maket cap during these years? 
+        3- Trends: do we observe these companies have an increasing or decreasing trend on their impact or market cap during these years?
             if we find something that gets far from their trend in these years, we might be having a problem
 
     Regarding assessments proposed, I will go with:
-        1- Data Quality: I would perform several data quality analisis to verify the content that we have on our systems databases.
-        2- Data Sources: Did some of our data source changed and theferoe causing bad data quality? it is important to be aware of changes 
-            not only on the data structure of our sources, but also if they are still trustworthy or not. As we stated on question 1 and 2, 
+        1- Data Quality: I would perform several data quality analyses to verify the content that we have on our systems databases.
+        2- Data Sources: Did some of our data source change and therefore causing bad data quality? It is important to be aware of changes
+            not only on the data structure of our sources, but also if they are still trustworthy or not. As we stated on question 1 and 2,
             duplicated values are found, are these from data sources or is an issue of data quality?
         3- Regulations: we need to verify if there has been any regulation that forced a company to adopt measures that are not traditionally followed.
 
@@ -71,9 +71,9 @@
     75%     -1.354440e+02
     max      3.643483e+08
 
-    The main concern after reviewing the stats, points to the same direction as already stated on previous questions. 
-    The high value of the maximum is suggesting that we have a big impact of outliers and these may be causing problems on our metrics. Detailed analisis 
+    The main concern after reviewing the stats, points to the same direction as already stated on previous questions.
+    The high value of the maximum is suggesting that we have a big impact of outliers and these may be causing problems on our metrics. Detailed analysis
     must be completed to ensure data quality and consistency.
 
-    Apart from it, as already mentioned in question 2. We need to review why are we having plenty of negative impacts and still have a possitive impact gap. Maybe we need to 
+    Apart from it, as already mentioned in question 2. We need to review why we are having plenty of negative impacts and still have a positive impact gap. Maybe we need to
     revisit how we are measuring and specially how these results are interpreted not only by us but by our customers.
