@@ -1,0 +1,79 @@
+1- What are the main changes between the current and past results?
+
+    After detecting duplicated pairs of: company_name+goal+version but with different matket cap and impact (for example MATCH GROUP, INC), assuming they are correct:
+
+    The market cap has decreased by: -575367.7482678369
+
+    The industry with highest market cap gap: ('Oil & Gas Drilling', -2186.133317259999)
+    The industry with lowest market cap gap: ('Banks', -345524.6068224739)
+
+    The impact has increased by: 542054.961013794
+
+    The industry with highest impact gap: ('Airlines', 276535.48306759074)
+    The industry with lowest impact gap: ('Health Care Services', 4177.815620422363)
+
+    The goal with highest impact gap: ('13 - Climate change', 542262.6371152084)        
+    The goal with lowest impact gap: ('03 - Health', -207.6761016845703)
+
+    company_name                 goal  impact_current  impact_previous  impact_difference
+    IND SWIFT LIMITED  13 - Climate change    -7405.275946     -5485.389590       -1919.886357
+    MATCH GROUP, INC.  13 - Climate change     -374.556227      -300.039228         -74.516999
+    MATCH GROUP, INC.  13 - Climate change     -300.039228      -374.556227          74.516999
+
+    As results, we can observe that IND SWIFT LIMITED has a big differente in its impact. If we observe, MATCH GROUP, INC, we see changes in both directions, possitive and negative, 
+    that may be associated with duplicated pairs.
+
+2-Would you recommend to assess in more detail any of these changes? Why?
+
+    Yes, I would recommend assessing why IND SWIFT LIMITED has such a high decrease. Also why MATCH GROUP, INC 
+    has changes in possitive and negative for the same goal, might be some error on data source.
+
+    I would also study in detail the entries for companies, just to verify why we have duplicated company_name+goal+version, 
+    is this related to an issue in the data source? Are we meant to have only unique values? (as it happens with MATCH GROUP, INC)
+
+    Another thing to review, is why we are having most negative impacts differente but we still have a possitive impact gap. This may show companies are going towards the correct direction 
+    but we still have room for improvement, or otherwise that we have problems on our data.
+
+3-If you believe that further assessments are needed, how would you prioritize them and why? What assessments would you propose?
+
+    For the detailed assessment I would prioritize based on the following:
+        1- Change: giving high priority to biggest changes, whether they are possitive or negative, they might be outliers that we need to correct.
+        2- Company: are these companies that are "trendy" in stock market? We should focus for those companies that gather more attention by investors,
+            otherwise the impact of any error on our system will lead to bad reputation of our product and reducing the NPS (apart from impact on reputation, stocks value, ...)
+        3- Trens: do we observe these companies have an increasing or decreasing trend on their impact or maket cap during these years? 
+            if we find something that gets far from their trend in these years, we might be having a problem
+
+    Regarding assessments proposed, I will go with:
+        1- Data Quality: I would perform several data quality analisis to verify the content that we have on our systems databases.
+        2- Data Sources: Did some of our data source changed and theferoe causing bad data quality? it is important to be aware of changes 
+            not only on the data structure of our sources, but also if they are still trustworthy or not. As we stated on question 1 and 2, 
+            duplicated values are found, are these from data sources or is an issue of data quality?
+        3- Regulations: we need to verify if there has been any regulation that forced a company to adopt measures that are not traditionally followed.
+
+4-Apart from these changes, are there other things that worry you about the new dump?
+
+    Current version stats:
+    count    5.380000e+03
+    mean     8.137574e+06
+    std      2.499780e+07
+    min     -2.460335e+07
+    25%     -1.298330e+03
+    50%     -3.243203e+02
+    75%     -1.225537e+02
+    max      3.643483e+08
+    Previous version stats:
+    count    5.518000e+03
+    mean     7.933962e+06
+    std      2.471590e+07
+    min     -2.460335e+07
+    25%     -1.298330e+03
+    50%     -3.243203e+02
+    75%     -1.354440e+02
+    max      3.643483e+08
+
+    The main concern after reviewing the stats, points to the same direction as already stated on previous questions. 
+    The high value of the maximum is suggesting that we have a big impact of outliers and these may be causing problems on our metrics. Detailed analisis 
+    must be completed to ensure data quality and consistency.
+
+    Apart from it, as already mentioned in question 2. We need to review why are we having plenty of negative impacts and still have a possitive impact gap. Maybe we need to 
+    revisit how we are measuring and specially how these results are interpreted not only by us but by our customers.
